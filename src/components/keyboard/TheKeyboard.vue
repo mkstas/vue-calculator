@@ -1,76 +1,41 @@
 <script setup lang="ts">
 import BaseButton from "../@ui/BaseButton.vue";
+
+defineProps(["addSymbol"]);
+
+const row1 = ["AC", "DEL", "%", "/"];
+const col1 = ["*", "-", "+"];
+const row2 = ["00", 0, ".", "="];
+const numbers = [9, 8, 7, 6, 5, 4, 3, 2, 1];
 </script>
 
 <template>
   <div class="grid grid-cols-4">
-    <BaseButton value="AC">
-      <span>AC</span>
+    <BaseButton v-for="value in row1" :key="value" @click="addSymbol(value)">
+      <span>{{ value }}</span>
     </BaseButton>
-    <BaseButton value="DEL">
-      <span>DEL</span>
-    </BaseButton>
-    <BaseButton value="PER">
-      <span>PER</span>
-    </BaseButton>
-    <BaseButton value="DIV">
-      <span>DIV</span>
-    </BaseButton>
+  </div>
 
-    <BaseButton value="7">
-      <span>7</span>
-    </BaseButton>
-    <BaseButton value="8">
-      <span>8</span>
-    </BaseButton>
-    <BaseButton value="9">
-      <span>9</span>
-    </BaseButton>
+  <div class="grid grid-cols-[3fr_1fr]">
+    <div class="grid grid-cols-3">
+      <BaseButton
+        v-for="value in numbers"
+        :key="value"
+        @click="addSymbol(value)"
+      >
+        <span>{{ value }}</span>
+      </BaseButton>
+    </div>
+    <div class="grid">
+      <BaseButton v-for="value in col1" :key="value" @click="addSymbol(value)">
+        <span>{{ value }}</span>
+      </BaseButton>
+    </div>
+  </div>
 
-    <BaseButton value="x">
-      <span>x</span>
-    </BaseButton>
-
-    <BaseButton value="4">
-      <span>4</span>
-    </BaseButton>
-    <BaseButton value="5">
-      <span>5</span>
-    </BaseButton>
-    <BaseButton value="6">
-      <span>6</span>
-    </BaseButton>
-
-    <BaseButton value="-">
-      <span>-</span>
-    </BaseButton>
-
-    <BaseButton value="1">
-      <span>1</span>
-    </BaseButton>
-    <BaseButton value="2">
-      <span>2</span>
-    </BaseButton>
-    <BaseButton value="3">
-      <span>3</span>
-    </BaseButton>
-
-    <BaseButton value="+">
-      <span>+</span>
-    </BaseButton>
-
-    <BaseButton value="00">
-      <span>00</span>
-    </BaseButton>
-    <BaseButton value="0">
-      <span>0</span>
-    </BaseButton>
-    <BaseButton value=".">
-      <span>.</span>
-    </BaseButton>
-
-    <BaseButton value="=">
-      <span>=</span>
+  <div class="grid grid-cols-4">
+    <BaseButton v-for="value in row2" :key="value" @click="addSymbol(value)">
+      <span>{{ value }}</span>
     </BaseButton>
   </div>
 </template>
