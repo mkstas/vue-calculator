@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import TheHeader from "./header/TheHeader.vue";
+</script>
+
 <template>
-  <div>Calculator</div>
+  <main>
+    <TheHeader />
+  </main>
 </template>
