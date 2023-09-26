@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import TheHeader from "./header/TheHeader.vue";
+// import TheHeader from "./header/TheHeader.vue";
 import TheDisplay from "./display/TheDisplay.vue";
 import TheKeyboard from "./keyboard/TheKeyboard.vue";
 
@@ -24,13 +24,12 @@ const resetExpression = () => {
 };
 
 const calculateExpression = () => {
-  expression.value = eval(expression.value.toString());
+  expression.value = eval(expression.value).toString();
 };
 </script>
 
 <template>
-  <TheHeader />
-  <main>
+  <div class="max-w-sm mx-auto p-6 h-screen">
     <TheDisplay :expression="expression" />
     <TheKeyboard
       @update="addToExpression($event)"
@@ -38,5 +37,5 @@ const calculateExpression = () => {
       @delete="deleteExpression"
       @calculate="calculateExpression"
     />
-  </main>
+  </div>
 </template>
