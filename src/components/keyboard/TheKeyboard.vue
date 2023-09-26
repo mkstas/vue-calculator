@@ -1,41 +1,68 @@
 <script setup lang="ts">
+import { NUMBERS } from "../../shared/constants";
+
 import BaseButton from "../@ui/BaseButton.vue";
 
-defineProps(["addSymbol"]);
-
-const row1 = ["AC", "DEL", "%", "/"];
-const col1 = ["*", "-", "+"];
-const row2 = ["00", 0, ".", "="];
-const numbers = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+const emit = defineEmits<{
+  update: [value: string];
+  reset: [void];
+  delete: [void];
+  calculate: [void];
+}>();
 </script>
 
 <template>
   <div class="grid grid-cols-4">
-    <BaseButton v-for="value in row1" :key="value" @click="addSymbol(value)">
-      <span>{{ value }}</span>
+    <BaseButton @click="emit('reset')">
+      <span>AC</span>
+    </BaseButton>
+    <BaseButton @click="emit('delete')">
+      <span>DEL</span>
+    </BaseButton>
+    <BaseButton @click="emit('update', '%')">
+      <span>%</span>
+    </BaseButton>
+    <BaseButton @click="emit('update', '/')">
+      <span>/</span>
     </BaseButton>
   </div>
 
   <div class="grid grid-cols-[3fr_1fr]">
     <div class="grid grid-cols-3">
       <BaseButton
-        v-for="value in numbers"
-        :key="value"
-        @click="addSymbol(value)"
+        v-for="number in NUMBERS"
+        :key="number.value"
+        @click="emit('update', number.value)"
       >
-        <span>{{ value }}</span>
+        <span>{{ number.label }}</span>
       </BaseButton>
     </div>
+
     <div class="grid">
-      <BaseButton v-for="value in col1" :key="value" @click="addSymbol(value)">
-        <span>{{ value }}</span>
+      <BaseButton @click="emit('update', '*')">
+        <span>*</span>
+      </BaseButton>
+      <BaseButton @click="emit('update', '-')">
+        <span>-</span>
+      </BaseButton>
+      <BaseButton @click="emit('update', '+')">
+        <span>+</span>
       </BaseButton>
     </div>
   </div>
 
   <div class="grid grid-cols-4">
-    <BaseButton v-for="value in row2" :key="value" @click="addSymbol(value)">
-      <span>{{ value }}</span>
+    <BaseButton @click="emit('update', '00')">
+      <span>00</span>
+    </BaseButton>
+    <BaseButton @click="emit('update', '0')">
+      <span>0</span>
+    </BaseButton>
+    <BaseButton @click="emit('update', '.')">
+      <span>.</span>
+    </BaseButton>
+    <BaseButton @click="emit('calculate')">
+      <span>=</span>
     </BaseButton>
   </div>
 </template>
