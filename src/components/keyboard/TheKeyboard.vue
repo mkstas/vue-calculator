@@ -14,16 +14,16 @@ const emit = defineEmits<{
 <template>
   <div class="pt-6 grid gap-4">
     <div class="grid grid-cols-4 gap-4">
-      <BaseButton :type="EnumButtonType.filled" @click="emit('reset')">
+      <BaseButton :type="EnumButtonType.danger" @click="emit('reset')">
         <span>AC</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.filled" @click="emit('delete')">
+      <BaseButton :type="EnumButtonType.alert" @click="emit('delete')">
         <span>DEL</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.filled" @click="emit('update', '%')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', '%')">
         <span>%</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.filled" @click="emit('update', ' / ')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', ' / ')">
         <span>/</span>
       </BaseButton>
 
@@ -36,7 +36,7 @@ const emit = defineEmits<{
       <BaseButton @click="emit('update', '9')">
         <span>9</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.filled" @click="emit('update', ' * ')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', ' * ')">
         <span>*</span>
       </BaseButton>
 
@@ -49,7 +49,7 @@ const emit = defineEmits<{
       <BaseButton @click="emit('update', '6')">
         <span>6</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.filled" @click="emit('update', ' - ')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', ' - ')">
         <span>-</span>
       </BaseButton>
 
@@ -62,7 +62,7 @@ const emit = defineEmits<{
       <BaseButton @click="emit('update', '3')">
         <span>3</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.filled" @click="emit('update', ' + ')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', ' + ')">
         <span>+</span>
       </BaseButton>
 
@@ -75,7 +75,7 @@ const emit = defineEmits<{
       <BaseButton @click="emit('update', '.')">
         <span>.</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.filled" @click="emit('calculate')">
+      <BaseButton :type="EnumButtonType.success" @click="emit('calculate')">
         <span>=</span>
       </BaseButton>
     </div>

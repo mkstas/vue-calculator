@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-// import TheHeader from "./header/TheHeader.vue";
 import TheDisplay from "./display/TheDisplay.vue";
 import TheKeyboard from "./keyboard/TheKeyboard.vue";
 
