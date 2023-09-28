@@ -8,6 +8,7 @@ const emit = defineEmits<{
   reset: [void];
   delete: [void];
   calculate: [void];
+  percente: [void];
 }>();
 </script>
 
@@ -20,10 +21,10 @@ const emit = defineEmits<{
       <BaseButton :type="EnumButtonType.alert" @click="emit('delete')">
         <span>DEL</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.default" @click="emit('update', '%')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('percente')">
         <span>%</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.default" @click="emit('update', ' / ')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', '/')">
         <span>/</span>
       </BaseButton>
 
@@ -36,7 +37,7 @@ const emit = defineEmits<{
       <BaseButton @click="emit('update', '9')">
         <span>9</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.default" @click="emit('update', ' * ')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', '*')">
         <span>*</span>
       </BaseButton>
 
@@ -49,7 +50,7 @@ const emit = defineEmits<{
       <BaseButton @click="emit('update', '6')">
         <span>6</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.default" @click="emit('update', ' - ')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', '-')">
         <span>-</span>
       </BaseButton>
 
@@ -62,7 +63,7 @@ const emit = defineEmits<{
       <BaseButton @click="emit('update', '3')">
         <span>3</span>
       </BaseButton>
-      <BaseButton :type="EnumButtonType.default" @click="emit('update', ' + ')">
+      <BaseButton :type="EnumButtonType.default" @click="emit('update', '+')">
         <span>+</span>
       </BaseButton>
 

@@ -7,23 +7,51 @@ import TheKeyboard from "./keyboard/TheKeyboard.vue";
 const expression = ref("0");
 
 const addToExpression = (symbol: string) => {
+  if (expression.value.slice(0, -1) === "0" && symbol === "00") {
+    return;
+  }
+
+  if (expression.value.slice(0, -1) === "0" && symbol === ".") {
+    return (expression.value = expression.value + symbol);
+  }
+
+  if (expression.value.slice(0, -1) === "0" && symbol === "/") {
+    return;
+  }
+
+  if (expression.value.slice(0, -1) === "0" && symbol === "*") {
+    return;
+  }
+
+  if (expression.value.slice(0, -1) === "0" && symbol === "+") {
+    return;
+  }
+
   if (expression.value.slice(0) === "0") {
     return (expression.value = symbol);
   }
 
-  expression.value += symbol;
+  return (expression.value += symbol);
 };
 
 const deleteExpression = () => {
-  expression.value = expression.value.slice(0, -1);
+  if (expression.value.length === 1 && expression.value[0] !== "0") {
+    return (expression.value = "0");
+  }
+
+  return (expression.value = expression.value.slice(0, -1));
 };
 
 const resetExpression = () => {
-  expression.value = (0).toString();
+  return (expression.value = (0).toString());
 };
 
 const calculateExpression = () => {
-  expression.value = eval(expression.value).toString();
+  return (expression.value = eval(expression.value).toString());
+};
+
+const percenteExpression = () => {
+  return (expression.value = (eval(expression.value) / 100).toString());
 };
 </script>
 
@@ -35,6 +63,7 @@ const calculateExpression = () => {
       @reset="resetExpression"
       @delete="deleteExpression"
       @calculate="calculateExpression"
+      @percente="percenteExpression"
     />
   </div>
 </template>
