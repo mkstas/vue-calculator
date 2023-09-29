@@ -4,11 +4,7 @@ import BaseButton from "../@ui/BaseButton.vue";
 import { BUTTONS } from "../../shared/constants";
 
 const emit = defineEmits<{
-  update: [value: string];
-  reset: [void];
-  delete: [void];
-  calculate: [void];
-  percente: [void];
+  onClickButton: [string];
 }>();
 </script>
 
@@ -18,6 +14,7 @@ const emit = defineEmits<{
       v-for="button in BUTTONS"
       :key="button.value"
       :type="button.type"
+      @click="emit('onClickButton', button.value)"
     >
       {{ button.value }}
     </BaseButton>
