@@ -19,12 +19,15 @@ export const BUTTONS: TypeButton[] = [
   },
   {
     value: "7",
+    type: EnumButtonType.default,
   },
   {
     value: "8",
+    type: EnumButtonType.default,
   },
   {
     value: "9",
+    type: EnumButtonType.default,
   },
   {
     value: "*",
@@ -32,12 +35,15 @@ export const BUTTONS: TypeButton[] = [
   },
   {
     value: "4",
+    type: EnumButtonType.default,
   },
   {
     value: "5",
+    type: EnumButtonType.default,
   },
   {
     value: "6",
+    type: EnumButtonType.default,
   },
   {
     value: "-",
@@ -45,12 +51,15 @@ export const BUTTONS: TypeButton[] = [
   },
   {
     value: "1",
+    type: EnumButtonType.default,
   },
   {
     value: "2",
+    type: EnumButtonType.default,
   },
   {
     value: "3",
+    type: EnumButtonType.default,
   },
   {
     value: "+",
@@ -58,12 +67,15 @@ export const BUTTONS: TypeButton[] = [
   },
   {
     value: "00",
+    type: EnumButtonType.default,
   },
   {
     value: "0",
+    type: EnumButtonType.default,
   },
   {
     value: ".",
+    type: EnumButtonType.default,
   },
   {
     value: "=",
