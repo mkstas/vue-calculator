@@ -8,13 +8,13 @@ const props = defineProps<{
 }>();
 
 const classes = computed(() => [
-  "absolute top-0 left-0 bottom-0 right-0 text-xl rounded-full transition-colors",
+  "absolute top-0 left-0 bottom-0 right-0 rounded-full transition-colors",
   props.type,
 ]);
 </script>
 
 <template>
-  <div class="relative w-auto pt-[100%]">
+  <div class="relative w-auto pt-[100%] text-2xl">
     <button :class="classes">
       <slot></slot>
     </button>

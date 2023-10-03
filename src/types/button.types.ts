@@ -9,4 +9,5 @@ export enum EnumButtonType {
 export type TypeButton = {
   value: string;
   type?: EnumButtonType;
+  action: (symbol: string) => void | string;
 };

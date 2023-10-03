@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import BaseButton from "../@ui/BaseButton.vue";
-
 import { BUTTONS } from "../../shared/constants";
-
-const emit = defineEmits<{
-  onClickButton: [string];
-}>();
 </script>
 
 <template>
@@ -14,7 +9,7 @@ const emit = defineEmits<{
       v-for="button in BUTTONS"
       :key="button.value"
       :type="button.type"
-      @click="emit('onClickButton', button.value)"
+      @click="button.action(button.value)"
     >
       {{ button.value }}
     </BaseButton>
